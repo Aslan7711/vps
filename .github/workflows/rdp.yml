@@ -26,9 +26,11 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Download Laucher
       run: |
-        Invoke-WebRequest https://drive.google.com/uc?id=13WebNaPOwCM4JdEGFnc6FkTmMRrE2KGt  -OutFile NGROK-AP.bat
-        Invoke-WebRequest https://drive.google.com/uc?id=1SRlO9RzQmhfRVR6FilyB2k4JRZaADEbA  -OutFile NGROK-CHECK.bat
-        Invoke-WebRequest https://drive.google.com/uc?id=17V_ZBSRkzNSlNG2F35F4ze8PHzZiH6_x -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/techiesneh/VPS/main/bat/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/techiesneh/VPS/main/bat/user.bat -OutFile user.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/techiesneh/VPS/main/bat/start.bat  -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/techiesneh/VPS/main/bat/cpuinfo.bat -OutFile cpuinfo.bat    
+    
     - name: Make YML file for NGROK.
       run: start start.bat
     - name: Enable RDP Access.
